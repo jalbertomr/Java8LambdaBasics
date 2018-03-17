@@ -9,14 +9,19 @@ public class Greeter {
     public static void main(String... args) {
         Greeter greeter = new Greeter();
 
-        InterGreeting holaMundoGreeting = new HolaMundoGreeting();
         InterGreeting myLambdafunction = () -> System.out.println("Hola desde lambda function");
 
-        holaMundoGreeting.perform();  //implementando una Clase
-        myLambdafunction.perform();   //implementando una function
+        InterGreeting innerClass = new InterGreeting() {
+            @Override
+            public void perform() {
+                System.out.println("Hola desde inner Class");
+            }
+        };
 
-        greeter.greet(holaMundoGreeting);
-        greeter.greet(myLambdafunction);
+        myLambdafunction.perform();  //implementando una Clase
+        innerClass.perform();   //implementando una inner class
+
+
 
     }
 }
