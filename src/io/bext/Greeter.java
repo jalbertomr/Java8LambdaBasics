@@ -21,7 +21,8 @@ public class Greeter {
         myLambdafunction.perform();  //implementando una Clase
         innerClass.perform();   //implementando una inner class
 
-
+        greeter.greet(myLambdafunction);
+        greeter.greet(innerClass);
 
     }
 }
