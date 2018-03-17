@@ -8,24 +8,16 @@ public class Greeter {
 
     public static void main(String... args) {
         Greeter greeter = new Greeter();
+
         InterGreeting holaMundoGreeting = new HolaMundoGreeting();
-        InterGreeting helloWorldGreeting = new HelloWorldGreeting();
+        InterGreeting myLambdafunction = () -> System.out.println("Hola desde lambda function");
+
+        holaMundoGreeting.perform();  //implementando una Clase
+        myLambdafunction.perform();   //implementando una function
+
         greeter.greet(holaMundoGreeting);
-        greeter.greet(helloWorldGreeting);
+        greeter.greet(myLambdafunction);
 
-        MyLambda myLambdaFunction       = () -> System.out.println("Hola desde lambda function");
-        InterGreeting myLambdafunction2 = () -> System.out.println("Hola desde lambda function");
-
-        greeter.greet(myLambdafunction2);
-
-        MyAdd myAddLambda = (int a, int b) -> a + b;
     }
 }
 
-interface MyLambda {
-    void perform();
-}
-
-interface MyAdd {
-    int add(int a, int b);
-}
