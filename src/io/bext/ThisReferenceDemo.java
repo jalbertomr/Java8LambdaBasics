@@ -5,19 +5,10 @@ public class ThisReferenceDemo {
     public static void main(String... args) {
 
         ThisReferenceDemo thisReferenceDemo = new ThisReferenceDemo();
-        thisReferenceDemo.doProcess(10, new Process() {
-            @Override
-            public void process(int i) {
+        thisReferenceDemo.doProcess(10, i -> {
                 System.out.println("valor de i: " + i);
-                System.out.println(this);
-            }
-
-            @Override
-            public String toString() {
-                return "this - la innerclase anonima";
-            }
-
-        });
+                //System.out.println(this);     //ahora hace referencia al this del entorno, lo cual es error
+            });
 
     }
 
