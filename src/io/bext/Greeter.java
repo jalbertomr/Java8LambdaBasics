@@ -22,6 +22,7 @@ public class Greeter {
         innerClass.perform();   //implementando una inner class
 
         greeter.greet(myLambdafunction);
+        greeter.greet(() -> System.out.println("Hola desde lambda function"));
         greeter.greet(innerClass);
 
     }
