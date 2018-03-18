@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class Unit1ExcerciseSolutionJava8 {
     public static void main(String... args) {
@@ -31,9 +32,9 @@ public class Unit1ExcerciseSolutionJava8 {
 
     }
 
-    private static void printConditionally(List<Person> personas, Condition condition) {
+    private static void printConditionally(List<Person> personas, Predicate<Person> personPredicate) {
         for (Person persona: personas ) {
-            if (condition.test(persona)){
+            if (personPredicate.test(persona)){
                 System.out.println(persona.toString());
             }
         }
