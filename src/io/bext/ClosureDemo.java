@@ -5,12 +5,8 @@ public class ClosureDemo {
     public static void main(String... args) {
         int a = 7;
         int b = 13;   //esta variable no puede cambiar
-        doProcess(a, new Process() {
-            @Override
-            public void process(int i) {
-                System.out.println(i + b);
-            }
-        });
+        doProcess(a, System.out::println);
+        doProcess(a, i -> System.out.println(i + b));  //se conjela en valor de b
     }
 
     private static void doProcess(int i, Process p) {
