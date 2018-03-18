@@ -26,5 +26,19 @@ public class StreamsDemo {
                 .forEach(p -> {
                     System.out.println(p.getApellidos() + " edad: " + p.getEdad());
                 });
+        System.out.println("personas nombre empieza con 'C' y a Mayusculas");
+        personas.stream()
+                .filter(p -> p.getNombres().startsWith("C"))
+                .map(p -> p.toString().toUpperCase())
+                .forEach(System.out::println);
+
+        long count = personas.stream()
+                .filter(person -> person.getNombres().startsWith("C"))
+                .count();
+        System.out.println(count);
+
+        personas.parallelStream()
+                //.map(person -> personas.toString().toLowerCase())
+                .forEach(System.out::println);
     }
 }
