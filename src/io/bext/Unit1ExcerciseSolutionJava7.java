@@ -16,6 +16,7 @@ public class Unit1ExcerciseSolutionJava7 {
         );
 
         // step 1: ordenar la lista por apellidos
+        System.out.println("ordenando");
         Collections.sort(personas, new Comparator<Person>() {
             @Override
             public int compare(Person o1, Person o2) {
@@ -23,9 +24,29 @@ public class Unit1ExcerciseSolutionJava7 {
             }
         });
         // step 2: crear un metodo que imprima todos los elementos de la list
+        System.out.println("imprimiendo todas la personas");
         printAll(personas);
         // step 3: crear un metodo que imprima todos los elementos cuyo apellido comience con C
+        System.out.println("imprimiendo personas apellido empiece con 'C'");
         printAllApellido_C(personas);
+
+        //
+        System.out.println("imprimiendo personas apellido empiece con 'C'");
+        printConditionally(personas, new Condition() {
+            @Override
+            public Boolean test(Person p) {
+                return p.getApellidos().startsWith("C");
+            }
+        });
+        //
+        System.out.println("imprimiendo personas Nombre empiece con 'J'");
+        printConditionally(personas, new Condition() {
+            @Override
+            public Boolean test(Person p) {
+                return p.getNombres().startsWith("J");
+            }
+        });
+
 
     }
 
@@ -37,9 +58,21 @@ public class Unit1ExcerciseSolutionJava7 {
         }
     }
 
+    private static void printConditionally(List<Person> personas, Condition condition) {
+        for (Person persona: personas ) {
+            if (condition.test(persona)){
+                System.out.println(persona.toString());
+            }
+        }
+    }
+
     private static void printAll(List<Person> personas) {
         for (Person persona: personas) {
             System.out.println(persona.toString());
         }
     }
+}
+
+interface Condition {
+    Boolean test(Person p);
 }
