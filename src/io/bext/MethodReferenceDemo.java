@@ -5,6 +5,7 @@ public class MethodReferenceDemo {
     public static void main(String... args) {
 
         Thread t = new Thread(MethodReferenceDemo::printMessage);  // Method Reference
+                            // () -> MethodReferenceDemo.printMessage()  ==> MethodReferenceDemo::printMessage
         t.start();
     }
 
